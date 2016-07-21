@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同程旅游国际机票专题制作平台</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/view.css">
+</head>
+<body>
+<div class="ZT_head">
+    <div class="ZT_title ZT_left">同程旅游国际机票专题制作平台</div>
+    <div class="ZT_btn ZT_right">
+        <button class="btn_style" id="download">download</button>
+    </div>
+</div>
+<div class="ZT_table ZT_left">
+    <ul class="ZT_tab" id="componentList">
+    </ul>
+</div>
+
+<script id="componentItem" type="text/html">
+    <li class="ZT_board componentItem" data-id="{{name}}" draggable="true">
+        <div class="board_img" style="background:url({{logo}}) center no-repeat;background-size:100% 100%;">
+        </div>
+        <div class="board_intro">
+            <div class="intro_head">{{title}}</div>
+            <div class="intro_word">{{desc}}</div>
+        </div>
+    </li>
+</script>
+<div class="ZT_view">
+    <div class="view_head">
+        <div class="choose_btn">
+            <div class="phone_style">
+                iPhone 6s plus
+            </div>
+            <div class="phone_choose"></div>
+
+            <ul class="select_size hide">
+                <li class="device iphone5" data-id="5">iPhone 5s</li>
+                <li class="device iphone6" data-id="6">iPhone 6s</li>
+                <li class="device iphone6p" data-id="6p">iPhone 6s plus</li>
+            </ul>
+        </div>
+        <span class="phone_size">414<span class="phone_multiply">X</span>736</span>
+    </div>
+    <div class="view_screen" >
+        <iframe name="innerWindow" style="width:100%;height:100%;" src="inner.html" frameborder="0"></iframe>
+    </div>
+</div>
+
+<div class="ZT_code">
+    <div class="ZT_js">
+        <div class="code_head">Javascript
+            <button class="btn_save">保存</button> </div>
+        <div class="code_detail" id="js"></div>
+    </div>
+    <div class="ZT_css">
+        <div class="code_head">Css</div>
+        <div class="code_detail" id="css"></div>
+    </div>
+    <div class="ZT_html">
+        <div class="code_head">Html</div>
+        <div class="code_detail" id="html"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="libs/jquery.1.11.js"></script>
+<script src="libs/jquery-ui.js"></script>
+<script src="libs/artTemplate.js"></script>
+<script src="libs/less.js"></script>
+
+<script src="libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/ace/ext-emmet.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/ace/emmet.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/editer.js"></script>
+
+<script src="js/componentUtil.js"></script>
+<script>
+    var selectItemId = "";
+    $(function(){
+        ComponentUtil.listTemplate(function(list){
+            if(list && list.length){
+                var content = "";
+                for(var i =0;i<list.length;i++){
+                    content += template('componentItem',list[i]);
+
+                }
+                $('#componentList').html(content);
+                $('#componentList .componentItem').each(function(){
+                    $(this).on("dragstart", function (ev) {//开始拖拽
+                        selectItemId = $(ev.currentTarget).data('id');
+                    });
+                });
+            }
+        });
+
+        Editer.init();
+        bindEvent();
+    });
+
+    function bindEvent(){
+        $('.phone_choose').on('click', function () {
+            $('.select_size').toggleClass('hide');
+        });
+
+        $('.device,.phone_style').on('click', function () {
+            var deviceId = $(this).data('id');
+
+            if (deviceId == "5") {
+                $('.phone_style').html('iPhone 5s');
+                $('.view_screen').removeClass().addClass('view_screen_iphone5');
+                $('.phone_size').html('320<span class="phone_multiply">X</span>568');
+            } else if (deviceId == "6") {
+                $('.phone_style').html('iPhone 6s');
+                $('.view_screen').removeClass().addClass('view_screen_iphone6');
+                $('.phone_size').html('375<span class="phone_multiply">X</span>667');
+            } else if (deviceId == "6p") {
+                $('.phone_style').html('iPhone 6s plus');
+                $('.view_screen').removeClass().addClass('view_screen_iphone6p');
+                $('.phone_size').html('414<span class="phone_multiply">X</span>736');
+            }
+
+            $('.select_size').toggleClass('hide');
+        });
+    }
+</script>

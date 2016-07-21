@@ -1,0 +1,26 @@
+<div class="style__component__ list-source"></div>
+<script id="tmpl-list-source" type="text/html">
+    <div id="content" class="content clearfix">
+        <div id="flightsWrap" class="contentDetail">
+            {{each list}}
+            <div class="plane">
+                <div class="entry">
+                    <a href="javascript:;" class="location" onclick="obj__component__.touchHandler()" data-bccode={{$value.bccode}} data-accode={{$value.accode}} data-type="2" data-bcname={{$value.bcname}} data-acname={{$value.acname}}
+                       data-bcdate={{$value.bcdate}} data-acdate={{$value.acdate}}>
+                        <div class="locationDetail">
+                            <div class="locationTop">
+                                <div class="place">{{$value.bcname}}<i class="go_back"></i>{{$value.acname}}</div>
+                                <div class="price"><span class="rmb">¥</span><span class="rmb_num">{{$value.price}}</span><span
+                                        class="qi">起</span></div>
+                            </div>
+                            <div class="none"></div>
+                            <div class="time">去程适用日期：{{$value.gotime}}-{{$value.backtime}}</div>
+                        </div>
+                        <div class="go"><i class="goicon"></i></div>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</script>

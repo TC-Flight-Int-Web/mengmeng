@@ -1,0 +1,163 @@
+.ZT_head {
+    line-height: 50px;
+
+    height: 50px;
+
+    background-color: #333;
+}
+
+.ZT_title {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 25px;
+
+    text-align: left;
+
+    color: #fff;
+}
+
+.ZT_left {
+    float: left;
+
+    width: 22%;
+}
+
+.ZT_right {
+    float: right;
+
+    width: 34%;
+}
+
+.ZT_btn {
+    font-size: 12px;
+
+    text-align: right;
+
+    color: #666;
+    padding-right: 10px;
+}
+
+.btn_style {
+    width: 65px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 5px;
+
+    border: 0;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    outline: none;
+    background: linear-gradient(#fff, #ddd);
+    background: -webkit-linear-gradient(#fff, #ddd);
+    background: -o-linear-gradient(#fff, #ddd);
+    background: -moz-linear-gradient(#fff, #ddd);
+}
+
+.ZT_table {
+    position: fixed;
+    left: 0;
+
+    overflow-y: auto;
+
+    height: calc(100% - 50px);
+
+    background-color: #fbfbfb;
+    -webkit-box-shadow: 1px 0 10px #cacaca;
+    -moz-box-shadow: 1px 0 10px #cacaca;
+    box-shadow: 1px 0 10px #cacaca;
+
+    -o-box-shadow: 1px 0 10px #cacaca;
+}
+
+.ZT_table::-webkit-scrollbar {
+    width: 7px;
+}
+
+.ZT_table::-webkit-scrollbar-button {
+    display: none;
+}
+
+.ZT_table::-webkit-scrollbar-track {
+    -webkit-box-shadow: 1px 0 10px #ddd inset;
+    -moz-box-shadow: 1px 0 10px #ddd inset;
+    box-shadow: 1px 0 10px #ddd inset;
+
+    -o-box-shadow: 1px 0 10px #ddd inset;
+}
+
+.ZT_table::-webkit-scrollbar-thumb {
+    background: #c4c3c3;
+    border-radius: 4px;
+}
+
+.ZT_table::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.ZT_tab {
+    width: 90%;
+    margin-left: 3%;
+}
+
+.ZT_board {
+    height: 160px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    border: 2px solid #fff;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #e9fafd;
+    -webkit-box-shadow: 1px 0 5px #ddd;
+    -moz-box-shadow: 1px 0 5px #ddd;
+    box-shadow: 1px 0 5px #ddd;
+
+    -o-box-shadow: 1px 0 5px #ddd;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.board_img {
+    width: 45%;
+    margin-right: 5%;
+    height: 135px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    float: left;
+}
+
+.board_img img {
+    height: 135px;
+}
+
+.board_intro {
+    width: 50%;
+    height: 135px;
+    float: left;
+}
+
+.intro_head {
+    border-bottom: 1px solid #00b7ee;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    padding-left: 5px;
+}
+
+.intro_word {
+    font-size: 12px;
+    padding-left: 5px;
+    line-height: 20px;
+    margin-top: 5px;
+    -o-text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-indent: 24px;
+}

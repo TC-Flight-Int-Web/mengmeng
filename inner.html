@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/head.css">
+    <link type="text/css" rel="stylesheet" href="css/view.css">
+    <link href="css/cloudEdit.css" rel="stylesheet">
+
+    <style>
+        html,body,#simulator{
+            width:100%;
+            height:100%;
+        }
+
+        #simulator{
+            overflow-y: auto;
+        }
+
+        .temp-container{
+            position: relative;
+        }
+
+        .temp-container:hover{
+            border:2px solid #00dd00;
+        }
+
+        .temp-operate{
+            position: absolute;
+            z-index:1;
+            top:0;
+            left:0;
+            width:100%;
+            height:34px;
+
+            display:none;
+            text-align: right;
+            background-color: rgba(255,255,255,.4);
+        }
+
+        .temp-operate .btn{
+            cursor:pointer;
+        }
+
+        .temp-container:hover .temp-operate{
+            display:block;
+        }
+
+        .temp-operate .edit{
+            display: inline-block;
+            width: 30px;
+            height: 32px;
+            background: url(./images/icon.png) -4px -2px no-repeat;
+            background-size: 42px;
+        }
+
+        .temp-operate .del{
+            display: inline-block;
+            width: 30px;
+            height: 32px;
+            background: url(./images/icon.png) -5px -32px no-repeat;
+            background-size: 42px;
+        }
+    </style>
+</head>
+<body>
+    <div id="simulator" ></div>
+
+    <script id="tmpl" type="text/html">
+        <div class="temp-container" id="h-{{tmplId}}">
+            <div class="temp-operate">
+                <span class="edit" data-id="{{tmplId}}"></span>
+                <span class="del" data-id="{{tmplId}}"></span>
+            </div>
+            <div class="temp-body"></div>
+        </div>
+    </script>
+</body>
+</html>
+<script src="libs/jquery.1.11.js"></script>
+<script src="libs/jquery-ui.js"></script>
+<script src="libs/artTemplate.js"></script>
+<script src="libs/less.js"></script>
+
+<script src="js/componentUtil.js"></script>
+<script src="js/app.js"></script>
