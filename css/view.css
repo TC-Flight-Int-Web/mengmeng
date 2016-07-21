@@ -10,6 +10,28 @@
 
     background-color: #272822;
 }
+
+.ZT_code ul{
+    height:42px;
+    line-height:42px;
+}
+
+.ZT_code ul li{
+    float:left;
+    height:42px;
+    line-height:42px;
+    padding:0 15px;
+    outline: none;
+}
+
+.ZT_code ul li a{
+    color:white;
+    outline: none;
+}
+
+.ZT_code .ui-tabs-active.ui-state-active{
+    background-color:#666;
+}
 .ZT_view
 {
     position: fixed;
@@ -48,6 +70,51 @@
 {
     background-color: transparent;
 }
+
+.ZT_oper{
+    float:right;
+    height:42px;
+}
+
+.ZT_drop{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 10px;
+    z-index: 999;
+    cursor: e-resize;
+}
+
+.ZT_drop .ZT_drager{
+    display:none;
+}
+
+.ZT_drop:hover .ZT_drager{
+    display:block;
+}
+
+.ui-resizable-e{
+    position: absolute;
+    cursor: e-resize;
+    width: 16px;
+    right: -5px;
+    top: 0;
+    bottom: 0;
+    background-color: #666;
+}
+.ui-resizable-e:after{
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    top: 50%;
+    left: 0;
+    margin-top: -15px;
+    text-align: center;
+    content:'||';
+    color:white;
+}
+
 .code_head
 {
     font-size: 18px;
@@ -65,44 +132,6 @@
     padding: 10px;
     height:calc(100% - 30px);
     color: #fff;
-}
-.ZT_code textarea::-webkit-scrollbar
-{
-    width: 7px;
-    height: 7px;
-}
-.ZT_code textarea::-webkit-scrollbar-button
-{
-    display: none;
-}
-.ZT_code textarea::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: 1px 0 10px #333 inset;
-       -moz-box-shadow: 1px 0 10px #333 inset;
-            box-shadow: 1px 0 10px #333 inset;
-
-         -o-box-shadow: 1px 0 10px #333 inset;
-}
-
-.ZT_code textarea::-webkit-scrollbar-thumb
-{
-    border-radius: 4px;
-    background: #666;
-}
-.ZT_code textarea::-webkit-resizer
-{
-    display: none;
-}
-.ZT_code textarea
-{
-    overflow: auto;
-
-    width: 100%;
-    height: 100%;
-
-    border: 0;
-    outline: none;
-    background-color: #272822;
 }
 .code_detail::-webkit-scrollbar-corner
 {
@@ -235,7 +264,7 @@
 {
     overflow: hidden;
 
-    height: 32%;
+    height: calc(100% - 60px);
 }
 .select_size{
     position: absolute;
