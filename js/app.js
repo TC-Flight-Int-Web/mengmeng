@@ -2,16 +2,22 @@
  * Created by Lesxw on 2016/7/12 0012.
  */
 $(function(){
-
-    bindEvent();
-    $('#simulator').sortable();
-
     var activityContainer = {
         currentEditId: 0,
         componentList:[],
     };
 
+    bindEvent();
+    loadCachePage();
+
     function  bindEvent() {
+        $('#simulator').sortable({
+            placeholder: "ui-state-highlight",
+            stop:function(){
+                cachePage();
+            }
+        });
+
         $('.btn_save', parent.document).on('click',function(){
             if(activityContainer.currentEditId == 0)return;
 
@@ -19,8 +25,10 @@ $(function(){
             resetComponetCode(activityContainer.currentEditId,code);
             initComponent(activityContainer.currentEditId);
 
-            top.Editer.setValue({html:'',js:'',css:''});
+            top.Editer.setValue({html:'',script:'',style:''});
             activityContainer.currentEditId = 0;
+
+            cachePage();
         });
 
         $("#download",parent.document).on('click',function(){
@@ -56,11 +64,7 @@ $(function(){
             var tmplId =$(this).data('id');
             activityContainer.currentEditId = tmplId;
 
-            var html = $('#h-' + tmplId).find('.temp-body').html();
-            var js = $('#js-' + tmplId).html();
-            var css =  $("#s-" + tmplId).html();
-
-            top.Editer.setValue({html,js,css});
+            top.Editer.setValue(getComponentCode(tmplId).converted);
         });
 
         $('#simulator').on('click',".del",function(ev){
@@ -71,12 +75,13 @@ $(function(){
             $("#s-" + tmplId).remove();
 
             activityContainer.componentList.splice(activityContainer.componentList.indexOf(tmplId),1);
-            top.Editer.setValue({html:'',js:'',css:''});
+            cachePage();
+
+            top.Editer.setValue({html:'',style:'',script:''});
             activityContainer.currentEditId = 0;
         });
 
         $("#simulator").on('dragover', function (ev) {
-            console.log(`dragover`);
             ev.preventDefault();
         });
 
@@ -91,18 +96,10 @@ $(function(){
 
                 var tmplId = Math.random().toString().substr(2);
 
-                if(!activityContainer.tmpls){
-                    activityContainer.tmpls = {};
-                }
-                //render
-                activityContainer.tmpls[tmplId] = obj;
-
-                //html
-                var html = getModuleContainer(tmplId,activityContainer.tmpls[tmplId].html);
-                //script
-                includeScript(tmplId,activityContainer.tmpls[tmplId].script);
-                //style
-                includeStyle(tmplId,activityContainer.tmpls[tmplId].style);
+                setComponentCode(tmplId,obj,true);
+                var html = getModuleContainer(tmplId,obj.html);
+                includeScript(tmplId,obj.script);
+                includeStyle(tmplId,obj.style);
 
                 var el = ev.target;
                 var ctx = $(that).get(0);
@@ -117,11 +114,40 @@ $(function(){
                     } else if (el == ctx) {
                         ctx.appendChild($(html).get(0));
                     }
-                } while (el !== ctx && (el = el.parentNode))
+                } while (el !== ctx && (el = el.parentNode));
                 activityContainer.componentList.push(tmplId);
                 initComponent(tmplId);
+
+                cachePage();
             });
         });
+    }
+
+    function cachePage(){
+        var tempIds = [];
+        $('.temp-container').each(function(){
+            var id = $(this).attr('id').replace('h-','');
+            tempIds.push(id);
+        })
+        activityContainer.componentList = tempIds;
+
+        localStorage['activityContainer'] = JSON.stringify(activityContainer);
+    }
+
+    function loadCachePage(){
+        if(localStorage['activityContainer']){
+            activityContainer = JSON.parse(localStorage['activityContainer']);
+            for(var i =0;i<activityContainer.componentList.length;i++){
+                var tmplId = activityContainer.componentList[i];
+                var obj = activityContainer.tmpls[tmplId].converted;
+
+                var html = getModuleContainer(tmplId,obj.html);
+                $('#simulator').append(html.get(0));
+                includeScript(tmplId,obj.script);
+                includeStyle(tmplId,obj.style);
+                initComponent(tmplId);
+            }
+        }
     }
 
     function initComponent(tmplId){
@@ -134,7 +160,10 @@ $(function(){
 
     function getModuleContainer(tmplId,html){
         var tmp = $(template('tmpl',{tmplId}));
-        tmp.find('.temp-body').append(html.replace(/__component__/g,tmplId));
+        var content = html.replace(/__component__/g,tmplId);
+        tmp.find('.temp-body').append(content);
+        activityContainer.tmpls[tmplId].converted.html = content;
+
         return tmp;
     }
 
@@ -142,7 +171,7 @@ $(function(){
         var script = document.createElement("script");
         script.id = "js-" + tmplId;
         script.innerHTML = content.replace(/__component__/g,tmplId);
-
+        activityContainer.tmpls[tmplId].converted.script = script.innerHTML;
         document.head.appendChild(script);
     }
 
@@ -151,18 +180,20 @@ $(function(){
             var style = document.createElement("style");
             style.id = "s-" + tmplId;
             style.innerHTML = data.css;
-
+            activityContainer.tmpls[tmplId].converted.style = style.innerHTML;
             document.head.appendChild(style);
         })
     }
 
     function resetComponetCode(tmplId,code){
+        updateComponentCode(tmplId,code);
+
         delete window["obj"+tmplId];
         $('#js-' + tmplId).remove();
-        includeScript(tmplId,code.js);
 
-        $('#h-' + activityContainer.currentEditId).find('.temp-body').html(code.html);
-        $("#s-" + activityContainer.currentEditId).html(code.css);
+        includeScript(tmplId,code.script);
+        $('#h-' + activityContainer.currentEditId).find('.temp-body').html(activityContainer.tmpls[tmplId].converted.html);
+        $("#s-" + activityContainer.currentEditId).html(activityContainer.tmpls[tmplId].converted.style);
     }
 
     function buildOutput() {
@@ -232,6 +263,25 @@ $(function(){
             content += html;
         }
         return content;
+    }
+
+    function setComponentCode(tmplId,code,cache){
+        if(!activityContainer.tmpls){
+            activityContainer.tmpls = {};
+        }
+
+        activityContainer.tmpls[tmplId] = {
+            orgin:code,
+            converted : {}
+        };
+    }
+
+    function updateComponentCode(tmplId,code,cache){
+        activityContainer.tmpls[tmplId].converted = code;
+    }
+
+    function getComponentCode(tmplId){
+        return activityContainer.tmpls[tmplId]
     }
 
 });

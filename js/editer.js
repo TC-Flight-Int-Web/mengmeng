@@ -46,15 +46,15 @@
 
         setValue: function(code){
             this.htmlField.setValue(code.html);
-            this.cssField.setValue(code.css);
-            this.jsField.setValue(code.js);
+            this.cssField.setValue(code.style);
+            this.jsField.setValue(code.script);
         },
 
         getValue:function(){
             return {
                 html:this.htmlField.getValue(),
-                css:this.cssField.getValue(),
-                js:this.jsField.getValue()
+                style:this.cssField.getValue(),
+                script:this.jsField.getValue()
             }
         }
 

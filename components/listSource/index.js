@@ -134,9 +134,7 @@
         },
 
         init: function () {
-            console.log(this);
             var str = template('tmpl-list-source', {list: this.dataSource});
-            console.log(str);
             $('.list-source').html(str);
         }
     };
