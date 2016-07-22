@@ -20,13 +20,14 @@
     float:left;
     height:42px;
     line-height:42px;
-    padding:0 15px;
     outline: none;
 }
 
 .ZT_code ul li a{
     color:white;
     outline: none;
+    padding:0 15px;
+    display: inline-block;
 }
 
 .ZT_code .ui-tabs-active.ui-state-active{
