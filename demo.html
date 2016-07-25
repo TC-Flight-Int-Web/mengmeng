@@ -9,12 +9,53 @@
 </head>
 <body>
 <div class="ZT_head">
-    <div class="ZT_title ZT_left">同程旅游国际机票专题制作平台</div>
+    <div class="ZT_title ZT_left">
+        <i class="ZT_menu_icon iconfont">&#xe7ab;</i>
+        <span>同程旅游国际机票专题制作平台</span>
+    </div>
+    <div class="ZT_type">
+        <button class="btn_style" id="type"><span>菜单类别</span>
+            <span class="iconfont">&#xe771;</span></button>
+
+    </div>
     <div class="ZT_btn ZT_right">
-        <button class="btn_style" id="download">download</button>
+        <button class="btn_style" id="download"><span>登录</span>
+            <span class="iconfont">&#xe769;</span></button>
+    </div>
+</div>
+<!--menu的弹出窗口-->
+<div class="ZT_box">
+    <div class="ZT_box_back"></div>
+    <div class="ZT_box_frame">
+        <div class="ZT_box_head">页面属性</div>
+        <ul class="ZT_box_detail">
+            <li>
+                <label class="ZT_box_label">关键词</label>
+                <input class="ZT_box_text" placeholder="请输入关键词">
+            </li>
+            <li>
+                <label class="ZT_box_label">关键词</label>
+                <input class="ZT_box_text" placeholder="请输入关键词">
+            </li>
+        </ul>
+        <div class="ZT_box_bottom">
+            <button class="ZT_box_btn ZT_box_save">保存</button>
+            <button class="ZT_box_btn ZT_box_delete">取消</button>
+        </div>
     </div>
 </div>
 <div class="ZT_table ZT_left">
+    <div class="ZT_menuBox">
+        <ul class="ZT_menu">
+            <li>
+                <p class="iconfont">&#xe737;</p>
+                <p class="ZT_menu_word">页面属性</p></li>
+            <li>
+                <p class="iconfont">&#xe739;</p>
+                <p class="ZT_menu_word">分享设置</p></li>
+            </li>
+        </ul>
+    </div>
     <ul class="ZT_tab" id="componentList">
     </ul>
 </div>
@@ -47,7 +88,7 @@
             </div>
             <span class="phone_size">414<span class="phone_multiply">X</span>736</span>
         </div>
-        <div class="view_screen" >
+        <div class="view_screen">
             <iframe name="innerWindow" style="width:100%;height:100%;" src="inner.html" frameborder="0"></iframe>
         </div>
     </div>
@@ -95,30 +136,29 @@
 <script src="js/componentUtil.js"></script>
 <script>
     var selectItemId = "";
-    $(function(){
+    $(function () {
         $(".ZT_view").resizable({
             minWidth: 500,
-            maxWidth:950,
-            resize:function(e, ui)
-            {
+            maxWidth: 950,
+            resize: function (e, ui) {
                 var parent = ui.element.parent();
-                var remainingSpace = parent.width()*0.78 - ui.element.outerWidth(),
+                var remainingSpace = parent.width() * 0.78 - ui.element.outerWidth(),
                         divTwo = ui.element.next(),
-                        divTwoWidth = (remainingSpace - (divTwo.outerWidth() - divTwo.width()))/parent.width()*100+"%";
+                        divTwoWidth = (remainingSpace - (divTwo.outerWidth() - divTwo.width())) / parent.width() * 100 + "%";
                 divTwo.width(divTwoWidth);
             }
         });
-        $( "#tabs" ).tabs();
+        $("#tabs").tabs();
 
-        ComponentUtil.listTemplate(function(list){
-            if(list && list.length){
+        ComponentUtil.listTemplate(function (list) {
+            if (list && list.length) {
                 var content = "";
-                for(var i =0;i<list.length;i++){
-                    content += template('componentItem',list[i]);
+                for (var i = 0; i < list.length; i++) {
+                    content += template('componentItem', list[i]);
 
                 }
                 $('#componentList').html(content);
-                $('#componentList .componentItem').each(function(){
+                $('#componentList .componentItem').each(function () {
                     $(this).on("dragstart", function (ev) {//开始拖拽
                         selectItemId = $(ev.currentTarget).data('id');
                     });
@@ -130,7 +170,7 @@
         bindEvent();
     });
 
-    function bindEvent(){
+    function bindEvent() {
         $('.phone_choose,.phone_style').on('click', function () {
             $('.select_size').toggleClass('hide');
         });

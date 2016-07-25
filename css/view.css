@@ -11,27 +11,36 @@
     background-color: #272822;
 }
 
-.ZT_code ul{
-    height:42px;
-    line-height:42px;
+.ZT_code ul
+{
+    line-height: 42px;
+
+    height: 42px;
 }
 
-.ZT_code ul li{
-    float:left;
-    height:42px;
-    line-height:42px;
+.ZT_code ul li
+{
+    line-height: 42px;
+
+    float: left;
+
+    height: 42px;
+    padding: 0 15px;
+
     outline: none;
 }
 
-.ZT_code ul li a{
-    color:white;
+.ZT_code ul li a
+{
+    color: white;
     outline: none;
     padding:0 15px;
     display: inline-block;
 }
 
-.ZT_code .ui-tabs-active.ui-state-active{
-    background-color:#666;
+.ZT_code .ui-tabs-active.ui-state-active
+{
+    background-color: #666;
 }
 .ZT_view
 {
@@ -72,48 +81,63 @@
     background-color: transparent;
 }
 
-.ZT_oper{
-    float:right;
-    height:42px;
+.ZT_oper
+{
+    float: right;
+
+    height: 42px;
 }
 
-.ZT_drop{
+.ZT_drop
+{
     position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 10px;
     z-index: 999;
-    cursor: e-resize;
-}
-
-.ZT_drop .ZT_drager{
-    display:none;
-}
-
-.ZT_drop:hover .ZT_drager{
-    display:block;
-}
-
-.ui-resizable-e{
-    position: absolute;
-    cursor: e-resize;
-    width: 16px;
-    right: -5px;
     top: 0;
+    left: 0;
+
+    width: 10px;
+    height: 100%;
+
+    cursor: e-resize;
+}
+
+.ZT_drop .ZT_drager
+{
+    display: none;
+}
+
+.ZT_drop:hover .ZT_drager
+{
+    display: block;
+}
+
+.ui-resizable-e
+{
+    position: absolute;
+    top: 0;
+    right: -5px;
     bottom: 0;
+
+    width: 16px;
+
+    cursor: e-resize;
+
     background-color: #666;
 }
-.ui-resizable-e:after{
+.ui-resizable-e:after
+{
     position: absolute;
-    width: 10px;
-    height: 30px;
     top: 50%;
     left: 0;
+
+    width: 10px;
+    height: 30px;
     margin-top: -15px;
+
+    content: '||';
     text-align: center;
-    content:'||';
-    color:white;
+
+    color: white;
 }
 
 .code_head
@@ -130,8 +154,9 @@
 }
 .code_detail
 {
+    height: calc(100% - 30px);
     padding: 10px;
-    height:calc(100% - 30px);
+
     color: #fff;
 }
 .code_detail::-webkit-scrollbar-corner
@@ -150,8 +175,6 @@
     margin-right: 5px;
 
     border: 0;
-    -webkit-border-radius: 5px;
-            border-radius: 5px;
     outline: none;
     background:         linear-gradient(#fff, #ddd);
     background: -webkit-linear-gradient(#fff, #ddd);
@@ -213,50 +236,56 @@
          -o-box-shadow: 1px 0 10px #cacaca;
 }
 
-.device{
-    cursor:pointer;
+.device
+{
     padding-left: 15px;
+
+    cursor: pointer;
 }
 
-.device:hover{
-    background-color:#eee;
+.device:hover
+{
+    background-color: #eee;
 }
 
-.view_screen_iphone5{
+.view_screen_iphone5
+{
     width: 320px;
     height: 568px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-    -moz-box-shadow: 1px 0 10px #cacaca;
-    box-shadow: 1px 0 10px #cacaca;
+       -moz-box-shadow: 1px 0 10px #cacaca;
+            box-shadow: 1px 0 10px #cacaca;
 
-    -o-box-shadow: 1px 0 10px #cacaca;
+         -o-box-shadow: 1px 0 10px #cacaca;
 }
-.view_screen_iphone6 {
+.view_screen_iphone6
+{
     width: 375px;
     height: 667px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-    -moz-box-shadow: 1px 0 10px #cacaca;
-    box-shadow: 1px 0 10px #cacaca;
+       -moz-box-shadow: 1px 0 10px #cacaca;
+            box-shadow: 1px 0 10px #cacaca;
 
-    -o-box-shadow: 1px 0 10px #cacaca;
+         -o-box-shadow: 1px 0 10px #cacaca;
 }
-.view_screen_iphone6p{
+.view_screen_iphone6p
+{
     width: 414px;
     height: 736px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-    -moz-box-shadow: 1px 0 10px #cacaca;
-    box-shadow: 1px 0 10px #cacaca;
+       -moz-box-shadow: 1px 0 10px #cacaca;
+            box-shadow: 1px 0 10px #cacaca;
 
-    -o-box-shadow: 1px 0 10px #cacaca;
+         -o-box-shadow: 1px 0 10px #cacaca;
 }
 
 .ZT_js,
@@ -267,17 +296,22 @@
 
     height: calc(100% - 60px);
 }
-.select_size{
-    position: absolute;
-    text-align: left;
-    background: #fff;
-    width: 110px;
-    border: 1px solid #ddd;
-    box-shadow: 2px 0 4px #ddd;
-    -webkit-box-shadow: 2px 0 4px #ddd;
-    -moz-box-shadow: 2px 0 4px #ddd;
-
-    -o-box-shadow: 2px 0 4px #ddd;
+.select_size
+{
     font-size: 12px;
+
+    position: absolute;
     z-index: 100;
+
+    width: 110px;
+
+    text-align: left;
+
+    border: 1px solid #ddd;
+    background: #fff;
+    -webkit-box-shadow: 2px 0 4px #ddd;
+       -moz-box-shadow: 2px 0 4px #ddd;
+            box-shadow: 2px 0 4px #ddd;
+
+         -o-box-shadow: 2px 0 4px #ddd;
 }
