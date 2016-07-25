@@ -15,13 +15,13 @@
             name:'listSource',
             logo:'http://pics.sc.chinaz.com/files/pic/pic9/201607/apic21654.jpg',
             title:'数据列表',
-            desc:'循环显示数据列表'
+            desc:'显示数据列表'
         },
         {
             name:'footActivityInfo',
             logo:'http://pics.sc.chinaz.com/files/pic/pic9/201607/apic21654.jpg',
             title:'活动详情',
-            desc:'底部活动详情及说明'
+            desc:'底部活动详情及说明,底图加文字'
         }
     ];
 
