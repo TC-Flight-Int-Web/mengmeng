@@ -22,6 +22,8 @@
 .ZT_menu_icon
 {
     font-size: 25px;
+    float:left;
+    padding-right:10px;
 }
 .ZT_head
 {
@@ -245,6 +247,10 @@
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
 }
+.ZT_box{
+    display:none;
+}
+
 .ZT_box_back
 {
     position: fixed;
