@@ -19,38 +19,25 @@
 
     </div>
     <div class="ZT_btn ZT_right">
-        <button class="btn_style" id="download"><span>登录</span>
-            <span class="iconfont">&#xe769;</span></button>
-    </div>
-</div>
-<!--menu的弹出窗口-->
-<div class="ZT_box">
-    <div class="ZT_box_back"></div>
-    <div class="ZT_box_frame">
-        <div class="ZT_box_head">页面属性</div>
-        <ul class="ZT_box_detail">
-            <li>
-                <label class="ZT_box_label">关键词</label>
-                <input class="ZT_box_text" placeholder="请输入关键词">
-            </li>
-            <li>
-                <label class="ZT_box_label">关键词</label>
-                <input class="ZT_box_text" placeholder="请输入关键词">
-            </li>
-        </ul>
-        <div class="ZT_box_bottom">
-            <button class="ZT_box_btn ZT_box_save">保存</button>
-            <button class="ZT_box_btn ZT_box_delete">取消</button>
+        <!--<button class="btn_style">-->
+            <!--<span>登录</span>-->
+            <!--<span class="iconfont">&#xe769;</span>-->
+        <!--</button>-->
+
+        <div class="login-info">
+            <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=726141764,2167206856&fm=58" alt="" />
+            <span>国际机票</span>
         </div>
     </div>
 </div>
 <div class="ZT_table ZT_left">
     <div class="ZT_menuBox">
         <ul class="ZT_menu">
-            <li>
+            <li class="editTitleBtn">
                 <p class="iconfont">&#xe737;</p>
-                <p class="ZT_menu_word">页面属性</p></li>
-            <li>
+                <p class="ZT_menu_word">页面属性</p>
+            </li>
+            <li class="shareConfigBtn">
                 <p class="iconfont">&#xe739;</p>
                 <p class="ZT_menu_word">分享设置</p></li>
             </li>
@@ -95,7 +82,7 @@
 
     <div class="ZT_code" id="tabs">
         <div class="ZT_oper">
-            <button class="btn_save">清空</button>
+            <button class="btn_clear">清空</button>
             <button class="btn_save">保存</button>
         </div>
 
@@ -118,6 +105,62 @@
         </div>
         <div class="ZT_html" id="tabs-3">
             <div class="code_detail" id="html"></div>
+        </div>
+    </div>
+</div>
+
+<!--menu的弹出窗口-->
+<div class="ZT_box editMeta hide">
+    <div class="ZT_box_back"></div>
+    <div class="ZT_box_frame">
+        <div class="ZT_box_head">页面属性</div>
+        <ul class="ZT_box_detail">
+            <li>
+                <label class="ZT_box_label">页面title</label>
+                <input class="ZT_box_text" id="pageTitle" placeholder="请输入页面title">
+            </li>
+            <li>
+                <label class="ZT_box_label">关键词</label>
+                <input class="ZT_box_text" id="metaKeywords" placeholder="请输入关键词">
+            </li>
+            <li>
+                <label class="ZT_box_label">Meta描述</label>
+                <input class="ZT_box_text" id="metaDesc" placeholder="请输入Meta描述">
+            </li>
+        </ul>
+        <div class="ZT_box_bottom">
+            <button class="ZT_box_btn ZT_box_delete cancelEditMeta">取消</button>
+            <button class="ZT_box_btn ZT_box_save saveEditMeta">保存</button>
+        </div>
+    </div>
+</div>
+
+<!--menu的弹出窗口-->
+<div class="ZT_box shareConfig hide">
+    <div class="ZT_box_back"></div>
+    <div class="ZT_box_frame">
+        <div class="ZT_box_head">分享配置</div>
+        <ul class="ZT_box_detail">
+            <li>
+                <label class="ZT_box_label">title</label>
+                <input class="ZT_box_text" id="shareTitle" placeholder="请输入分享标题">
+            </li>
+            <li>
+                <label class="ZT_box_label">desc</label>
+                <input class="ZT_box_text" id="shareDesc" placeholder="请输入分享描述">
+            </li>
+            <li>
+                <label class="ZT_box_label">url</label>
+                <input class="ZT_box_text" id="shareUrl" placeholder="请输入分享跳转地址">
+            </li>
+            <li>
+                <label class="ZT_box_label">image</label>
+                <input class="ZT_box_text" id="shareImage" placeholder="请输入分享图片地址">
+            </li>
+        </ul>
+        <div class="ZT_box_bottom">
+            <button class="ZT_box_btn ZT_box_delete cancelShareConfig">取消</button>
+            <button class="ZT_box_btn ZT_box_save saveShareConfig">保存</button>
         </div>
     </div>
 </div>
@@ -171,6 +214,7 @@
     });
 
     function bindEvent() {
+
         $('.phone_choose,.phone_style').on('click', function () {
             $('.select_size').toggleClass('hide');
         });

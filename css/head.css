@@ -59,6 +59,28 @@
 
     width: 34%;
 }
+.login-info{
+    margin-right:20px;
+}
+
+.login-info,.login-info span{
+    height:50px;
+    line-height:50px;
+    display: inline-block;
+
+}
+
+.login-info img{
+    height:38px;
+
+
+    float:left;
+    display: inline-block;
+    border-radius: 50%;
+    margin-top:6px;
+    margin-right:10px;
+}
+
 .ZT_type
 {
     float: left;
@@ -201,8 +223,6 @@
 
 .board_img
 {
-    position: absolute;
-
     overflow: hidden;
 
     width: 100%;
@@ -218,7 +238,7 @@
     width: 100%;
 
     color: #fff;
-    background: rgba(255,255,255,.5);
+    background: rgba(0,0,0,.5);
 }
 
 .intro_head
@@ -246,9 +266,6 @@
     -o-text-overflow: ellipsis;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-}
-.ZT_box{
-    display:none;
 }
 
 .ZT_box_back
@@ -300,6 +317,7 @@
     line-height: 40px;
 
     margin-right: 10px;
+    width:80px;
 }
 .ZT_box_text
 {
@@ -354,6 +372,11 @@
     outline: none;
     background: #333;
 }
+
+.ZT_box_delete{
+    background: #666;
+}
+
 .ZT_box_btn:hover
 {
     background: #666;

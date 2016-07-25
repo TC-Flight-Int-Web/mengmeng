@@ -5,6 +5,17 @@ $(function(){
     var activityContainer = {
         currentEditId: 0,
         componentList:[],
+        pageConfig:{
+            title:'',
+            metaKeywords:'',
+            metaDesc:''
+        },
+        shareConfig:{
+            title:'',
+            desc:'',
+            url:'',
+            image:''
+        }
     };
 
     bindEvent();
@@ -16,6 +27,54 @@ $(function(){
             stop:function(){
                 cachePage();
             }
+        });
+
+        $('.shareConfigBtn',parent.document).on('click',function(){
+            if($('.shareConfig',parent.document).hasClass('hide')){
+                $('#shareTitle',parent.document).val(activityContainer.shareConfig.title);
+                $('#shareDesc',parent.document).val(activityContainer.shareConfig.desc);
+                $('#shareUrl',parent.document).val(activityContainer.shareConfig.url);
+                $('#shareImage',parent.document).val(activityContainer.shareConfig.image);
+
+                $('.shareConfig',parent.document).removeClass('hide');
+            }
+        });
+
+        $('.saveShareConfig',parent.document).on('click',function(){
+            activityContainer.shareConfig.title = $('#shareTitle',parent.document).val();
+            activityContainer.shareConfig.desc = $('#shareDesc',parent.document).val();
+            activityContainer.shareConfig.url = $('#shareUrl',parent.document).val();
+            activityContainer.shareConfig.image = $('#shareImage',parent.document).val();
+
+            $('.shareConfig',parent.document).addClass('hide');
+        });
+
+        $('.cancelShareConfig',parent.document).on('click',function(){
+            $('.shareConfig',parent.document).addClass('hide');
+        });
+
+        $('.editTitleBtn',parent.document).on('click',function(){
+            if($('.editMeta',parent.document).hasClass('hide')){
+                $('#pageTitle',parent.document).val(activityContainer.pageConfig.title);
+                $('#metaKeywords',parent.document).val(activityContainer.pageConfig.metaKeywords);
+                $('#metaDesc',parent.document).val(activityContainer.pageConfig.metaDesc);
+
+                $('.editMeta',parent.document).removeClass('hide');
+            }
+        });
+
+        $('.saveEditMeta',parent.document).on('click',function(){
+            activityContainer.pageConfig.title = $('#pageTitle',parent.document).val();
+            $('.editMeta',parent.document).addClass('hide');
+        });
+
+        $('.cancelEditMeta',parent.document).on('click',function(){
+            $('.editMeta',parent.document).addClass('hide');
+        });
+
+        $('.btn_clear',parent.document).on('click',function(){
+            top.Editer.setValue({html:'',script:'',style:''});
+            activityContainer.currentEditId = 0;
         });
 
         $('.btn_save', parent.document).on('click',function(){
@@ -199,6 +258,7 @@ $(function(){
     function buildOutput() {
 
         var content = {
+            title:activityContainer.pageConfig.title,
             html: getAllSelectHtml(),
             style: getAllSelectStyle(),
             js: getAllSelectScript()
@@ -208,6 +268,9 @@ $(function(){
         html += '<!DOCTYPE html>\n';
         html += '<html lang="en">\n';
         html += '<head>\n';
+
+        html += '<title>' + content.title + '</title>\n';
+
         html += '<meta charset="UTF-8">\n';
         html += '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">\n';
 
@@ -226,6 +289,20 @@ $(function(){
 
         html += '<script src="http://js.40017.cn/cn/min/??/cn/if/zhuanti/common/jquery-1.11.3.min.js"></script>\n';
 
+        html += '<script type="text/javascript">\n';
+        html += 'var _tcq = _tcq || [];\n';
+        html += 'var _timediff = -1;\n';
+        html += 'if (typeof _tcopentime != "undefined") {\n';
+        html += '    _timediff = new Date().getTime() - _tcopentime;\n';
+        html += '}\n';
+        html += '_tcq.push(["_serialid", "" ? "" : 0]);\n';
+        html += '_tcq.push(["_vrcode", "10003-2012-0"]);\n';
+        html += '_tcq.push(["_refId", ""]);\n';
+        html += '_tcq.push(["_userId", ""]);\n';
+        html += '_tcq.push(["_openTime", _timediff]);\n';
+        html += '_tcq.push(["_trackPageview", ""]);\n';
+        html += '</script>\n';
+        html += '<script defer="" type="text/javascript" src="http://vstlog.17usoft.com/vst.ashx" charset="utf-8"></script>\n';
         html += '\n<script>\n';
         html += content.js;
         html += '\n</script>\n';
