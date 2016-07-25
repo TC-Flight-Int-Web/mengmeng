@@ -308,7 +308,7 @@ $(function () {
             html += '<input type="hidden" name="tcsharetext" value="' + content.share.title + '" />\n';
             html += '<input type="hidden" name="tcDesc" value="' + content.share.desc + '" />\n';
             html += '</div>\n';
-            html += '<script type="text/javascript" src="//wx.40017.cn/touch/weixin/iflight/js/airplane/wxshare3.0.0.1.js?v=2016020205"></script>\n';
+            html += '<script type="text/javascript" src="http://wx.40017.cn/touch/weixin/iflight/js/airplane/wxshare3.0.0.1.js?v=2016020205"></script>\n';
         }
 
         html += '</body>\n';

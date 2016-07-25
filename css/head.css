@@ -173,6 +173,10 @@
     width: 100%;
 }
 
+.ZT_menu .editTitleBtn,.ZT_menu .shareConfigBtn{
+    cursor: default;
+}
+
 .ZT_menu .iconfont {
     font-size: 40px;
 
