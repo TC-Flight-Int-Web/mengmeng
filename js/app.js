@@ -47,6 +47,7 @@ $(function () {
             activityContainer.shareConfig.image = $('#shareImage', parent.document).val();
 
             $('.shareConfig', parent.document).addClass('hide');
+            cachePage();
         });
 
         $('.cancelShareConfig', parent.document).on('click', function () {
@@ -65,7 +66,11 @@ $(function () {
 
         $('.saveEditMeta', parent.document).on('click', function () {
             activityContainer.pageConfig.title = $('#pageTitle', parent.document).val();
+            activityContainer.pageConfig.metaKeywords = $('#metaKeywords', parent.document).val();
+            activityContainer.pageConfig.metaDesc = $('#metaDesc', parent.document).val();
+
             $('.editMeta', parent.document).addClass('hide');
+            cachePage();
         });
 
         $('.cancelEditMeta', parent.document).on('click', function () {
@@ -90,7 +95,12 @@ $(function () {
             cachePage();
         });
 
-        $("#download", parent.document).on('click', function () {
+        $('#clearCacheBtn', parent.document).on('click', function () {
+            localStorage['activityContainer'] = '';
+            location.reload();
+        });
+
+        $("#downloadBtn", parent.document).on('click', function () {
             function destroyClickedElement(event) {
                 document.body.removeChild(event.target);
             }
@@ -187,7 +197,7 @@ $(function () {
         $('.temp-container').each(function () {
             var id = $(this).attr('id').replace('h-', '');
             tempIds.push(id);
-        })
+        });
         activityContainer.componentList = tempIds;
 
         localStorage['activityContainer'] = JSON.stringify(activityContainer);
@@ -246,21 +256,15 @@ $(function () {
 
     function resetComponetCode(tmplId, code) {
         updateComponentCode(tmplId, code);
-
-        delete window["obj" + tmplId];
-        $('#js-' + tmplId).remove();
-
-        includeScript(tmplId, code.script);
-        $('#h-' + activityContainer.currentEditId).find('.temp-body').html(activityContainer.tmpls[tmplId].converted.html);
-        $("#s-" + activityContainer.currentEditId).html(activityContainer.tmpls[tmplId].converted.style);
-
-        initComponent(tmplId);
+        location.reload();
     }
 
     function buildOutput() {
 
         var content = {
             title: activityContainer.pageConfig.title,
+            keywords: activityContainer.pageConfig.metaKeywords,
+            desc: activityContainer.pageConfig.metaDesc,
             share: activityContainer.shareConfig,
             html: getAllSelectHtml(),
             style: getAllSelectStyle(),
@@ -273,6 +277,11 @@ $(function () {
         html += '<head>\n';
         /* title */
         html += '<title>' + content.title + '</title>\n';
+        /* keywords */
+        html += '<meta name="description" content="' + content.keywords + '"/>\n';
+        /* desc */
+        html += '<meta name="keywords" content="' + content.desc + '"/>\n';
+
         /* meta */
         html += '<meta http-equiv="content-type" content="text/html;charset=UTF-8" />\n';
         html += '<meta name="apple-mobile-web-app-capable" content="yes" />\n';
@@ -299,6 +308,7 @@ $(function () {
             html += '<input type="hidden" name="tcsharetext" value="' + content.share.title + '" />\n';
             html += '<input type="hidden" name="tcDesc" value="' + content.share.desc + '" />\n';
             html += '</div>\n';
+            html += '<script type="text/javascript" src="//wx.40017.cn/touch/weixin/iflight/js/airplane/wxshare3.0.0.1.js?v=2016020205"></script>\n';
         }
 
         html += '</body>\n';

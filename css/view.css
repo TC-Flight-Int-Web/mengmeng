@@ -1,5 +1,4 @@
-.ZT_code
-{
+.ZT_code {
     position: fixed;
     right: 0;
 
@@ -11,15 +10,13 @@
     background-color: #272822;
 }
 
-.ZT_code ul
-{
+.ZT_code ul {
     line-height: 42px;
 
     height: 42px;
 }
 
-.ZT_code ul li
-{
+.ZT_code ul li {
     line-height: 42px;
 
     float: left;
@@ -30,66 +27,61 @@
     outline: none;
 }
 
-.ZT_code ul li a
-{
+.ZT_code ul li a {
     color: white;
     outline: none;
-    padding:0 15px;
+    padding: 0 15px;
     display: inline-block;
 }
 
-.ZT_code .ui-tabs-active.ui-state-active
-{
+.ZT_code .ui-tabs-active.ui-state-active {
     background-color: #666;
 }
-.ZT_view
-{
+
+.ZT_view {
     position: fixed;
     left: 22%;
 
     overflow-y: auto;
 
-    width: 44% ;
+    width: 44%;
     min-width: 414px;
     height: 100%;
 }
-.ZT_view::-webkit-scrollbar
-{
+
+.ZT_view::-webkit-scrollbar {
     width: 7px;
     height: 7px;
 }
-.ZT_view::-webkit-scrollbar-button
-{
+
+.ZT_view::-webkit-scrollbar-button {
     display: none;
 }
-.ZT_view::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: 1px 0 10px #ddd inset;
-       -moz-box-shadow: 1px 0 10px #ddd inset;
-            box-shadow: 1px 0 10px #ddd inset;
 
-         -o-box-shadow: 1px 0 10px #ddd inset;
+.ZT_view::-webkit-scrollbar-track {
+    -webkit-box-shadow: 1px 0 10px #ddd inset;
+    -moz-box-shadow: 1px 0 10px #ddd inset;
+    box-shadow: 1px 0 10px #ddd inset;
+
+    -o-box-shadow: 1px 0 10px #ddd inset;
 }
 
-.ZT_view::-webkit-scrollbar-thumb
-{
+.ZT_view::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: #c4c3c3;
 }
-.ZT_view::-webkit-scrollbar-corner
-{
+
+.ZT_view::-webkit-scrollbar-corner {
     background-color: transparent;
 }
 
-.ZT_oper
-{
+.ZT_oper {
     float: right;
 
     height: 42px;
 }
 
-.ZT_drop
-{
+.ZT_drop {
     position: absolute;
     z-index: 999;
     top: 0;
@@ -101,31 +93,29 @@
     cursor: e-resize;
 }
 
-.ZT_drop .ZT_drager
-{
+.ZT_drop .ZT_drager {
     display: none;
 }
 
-.ZT_drop:hover .ZT_drager
-{
+.ZT_drop:hover .ZT_drager {
     display: block;
 }
 
-.ui-resizable-e
-{
+.ui-resizable-e {
     position: absolute;
     top: 0;
     right: -5px;
     bottom: 0;
-
     width: 16px;
-
     cursor: e-resize;
-
     background-color: #666;
+    opacity:0;
 }
-.ui-resizable-e:after
-{
+.ui-resizable-e:hover{
+    opacity:1;
+}
+
+.ui-resizable-e:after {
     position: absolute;
     top: 50%;
     left: 0;
@@ -140,8 +130,7 @@
     color: white;
 }
 
-.code_head
-{
+.code_head {
     font-size: 18px;
     line-height: 30px;
 
@@ -152,19 +141,19 @@
     color: #fff;
     background-color: #545554;
 }
-.code_detail
-{
+
+.code_detail {
     height: calc(100% - 30px);
     padding: 10px;
 
     color: #fff;
 }
-.code_detail::-webkit-scrollbar-corner
-{
+
+.code_detail::-webkit-scrollbar-corner {
     background-color: transparent;
 }
-.btn_save,.btn_clear
-{
+
+.btn_save, .btn_clear {
     line-height: 24px;
 
     float: right;
@@ -176,13 +165,13 @@
 
     border: 0;
     outline: none;
-    background:         linear-gradient(#fff, #ddd);
+    background: linear-gradient(#fff, #ddd);
     background: -webkit-linear-gradient(#fff, #ddd);
-    background:      -o-linear-gradient(#fff, #ddd);
-    background:    -moz-linear-gradient(#fff, #ddd);
+    background: -o-linear-gradient(#fff, #ddd);
+    background: -moz-linear-gradient(#fff, #ddd);
 }
-.view_head
-{
+
+.view_head {
     line-height: 30px;
 
     height: 30px;
@@ -191,8 +180,8 @@
 
     border-bottom: 1px solid #ccc;
 }
-.phone_choose
-{
+
+.phone_choose {
     display: inline-block;
 
     width: 0;
@@ -203,8 +192,8 @@
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
 }
-.phone_style
-{
+
+.phone_style {
     position: relative;
 
     display: inline-block;
@@ -212,92 +201,87 @@
     margin-right: 5px;
 }
 
-.phone_multiply
-{
+.phone_multiply {
     display: inline-block;
 
     margin: 0 15px;
 }
-.choose_btn
-{
+
+.choose_btn {
     display: inline-block;
 }
-.view_screen
-{
+
+.view_screen {
     width: 414px;
     height: 736px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-       -moz-box-shadow: 1px 0 10px #cacaca;
-            box-shadow: 1px 0 10px #cacaca;
+    -moz-box-shadow: 1px 0 10px #cacaca;
+    box-shadow: 1px 0 10px #cacaca;
 
-         -o-box-shadow: 1px 0 10px #cacaca;
+    -o-box-shadow: 1px 0 10px #cacaca;
 }
 
-.device
-{
+.device {
     padding-left: 15px;
 
     cursor: pointer;
 }
 
-.device:hover
-{
+.device:hover {
     background-color: #eee;
 }
 
-.view_screen_iphone5
-{
+.view_screen_iphone5 {
     width: 320px;
     height: 568px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-       -moz-box-shadow: 1px 0 10px #cacaca;
-            box-shadow: 1px 0 10px #cacaca;
+    -moz-box-shadow: 1px 0 10px #cacaca;
+    box-shadow: 1px 0 10px #cacaca;
 
-         -o-box-shadow: 1px 0 10px #cacaca;
+    -o-box-shadow: 1px 0 10px #cacaca;
 }
-.view_screen_iphone6
-{
+
+.view_screen_iphone6 {
     width: 375px;
     height: 667px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-       -moz-box-shadow: 1px 0 10px #cacaca;
-            box-shadow: 1px 0 10px #cacaca;
+    -moz-box-shadow: 1px 0 10px #cacaca;
+    box-shadow: 1px 0 10px #cacaca;
 
-         -o-box-shadow: 1px 0 10px #cacaca;
+    -o-box-shadow: 1px 0 10px #cacaca;
 }
-.view_screen_iphone6p
-{
+
+.view_screen_iphone6p {
     width: 414px;
     height: 736px;
     margin: 20px auto;
 
     background-color: #fff;
     -webkit-box-shadow: 1px 0 10px #cacaca;
-       -moz-box-shadow: 1px 0 10px #cacaca;
-            box-shadow: 1px 0 10px #cacaca;
+    -moz-box-shadow: 1px 0 10px #cacaca;
+    box-shadow: 1px 0 10px #cacaca;
 
-         -o-box-shadow: 1px 0 10px #cacaca;
+    -o-box-shadow: 1px 0 10px #cacaca;
 }
 
 .ZT_js,
 .ZT_css,
-.ZT_html
-{
+.ZT_html {
     overflow: hidden;
 
     height: calc(100% - 60px);
 }
-.select_size
-{
+
+.select_size {
     font-size: 12px;
 
     position: absolute;
@@ -310,8 +294,8 @@
     border: 1px solid #ddd;
     background: #fff;
     -webkit-box-shadow: 2px 0 4px #ddd;
-       -moz-box-shadow: 2px 0 4px #ddd;
-            box-shadow: 2px 0 4px #ddd;
+    -moz-box-shadow: 2px 0 4px #ddd;
+    box-shadow: 2px 0 4px #ddd;
 
-         -o-box-shadow: 2px 0 4px #ddd;
+    -o-box-shadow: 2px 0 4px #ddd;
 }
