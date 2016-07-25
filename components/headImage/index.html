@@ -1,3 +1,9 @@
 <div class="style__component__ c-head-image-box">
-    <img src="http://desk.fd.zol-img.com.cn/t_s208x130c5/g5/M00/05/0A/ChMkJld97EeIdcPEAAbhrpe3EWEAATT1gIm8ncABuHG069.jpg" >
+
 </div>
+
+<script id="tmpl-image-list" type="text/html">
+    {{each list}}
+    <img src="{{$value}}" />
+    {{/each}}
+</script>

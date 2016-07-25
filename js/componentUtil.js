@@ -7,19 +7,19 @@
     var componentList = [
         {
             name:'headImage',
-            logo:'http://pics.sc.chinaz.com/files/pic/pic9/201607/apic21654.jpg',
+            logo:'https://raw.githubusercontent.com/TC-Flight-Int-Web/mengmeng/master/components/headImage/20160725144256.png',
             title:'图片',
             desc:'顶部图片，无js，纯显示'
         },
         {
             name:'listSource',
-            logo:'http://pics.sc.chinaz.com/files/pic/pic9/201607/apic21654.jpg',
+            logo:'https://raw.githubusercontent.com/TC-Flight-Int-Web/mengmeng/master/components/listSource/20160725144136.png',
             title:'数据列表',
             desc:'显示数据列表'
         },
         {
             name:'footActivityInfo',
-            logo:'http://pics.sc.chinaz.com/files/pic/pic9/201607/apic21654.jpg',
+            logo:'https://raw.githubusercontent.com/TC-Flight-Int-Web/mengmeng/master/components/footActivityInfo/20160725144218.png',
             title:'活动详情',
             desc:'底部活动详情及说明,底图加文字'
         }
